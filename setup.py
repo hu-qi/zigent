@@ -1,5 +1,7 @@
 from setuptools import find_packages, setup
 
+with open('README.md', 'r', encoding='utf-8') as f:
+    long_description = f.read()
 
 def get_requires():
     with open("requirements.txt", "r", encoding="utf-8") as f:
@@ -19,6 +21,8 @@ setup(
     description="AI Agent for zishu.co",
     packages=find_packages(exclude=["test*", "app*", "doc*", "example"]),
     python_requires=">=3.9",
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     install_requires=get_requires(),
     license="Apache License 2.0",
     author="Zhiwei Liu, Qi Hu",
