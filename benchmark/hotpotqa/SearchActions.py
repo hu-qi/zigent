@@ -1,7 +1,7 @@
 import os
 import wikipedia
 
-from agentlite.actions.BaseAction import BaseAction
+from zigent.actions.BaseAction import BaseAction
 
 class WikipediaSearch(BaseAction):
     def __init__(self) -> None:

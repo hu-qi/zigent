@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from agentlite.commons import AgentAct, TaskPackage
+from zigent.commons import AgentAct, TaskPackage
 
 
 

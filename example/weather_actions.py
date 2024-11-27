@@ -5,7 +5,7 @@ import requests_cache
 import pandas as pd
 from retry_requests import retry
 
-from agentlite.actions import BaseAction
+from zigent.actions import BaseAction
 
 URLS = {
     "historical_weather": "https://archive-api.open-meteo.com/v1/archive",

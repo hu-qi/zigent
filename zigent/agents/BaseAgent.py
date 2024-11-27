@@ -1,15 +1,15 @@
 from typing import List
 
-from agentlite.actions import BaseAction, FinishAct, ThinkAct, PlanAct
-from agentlite.agent_prompts import BasePromptGen
-from agentlite.agent_prompts.prompt_utils import DEFAULT_PROMPT
-from agentlite.agents.agent_utils import *
-from agentlite.commons import AgentAct, TaskPackage
-from agentlite.commons.AgentAct import ActObsChainType
-from agentlite.llm.agent_llms import BaseLLM
-from agentlite.logging import DefaultLogger
-from agentlite.logging.terminal_logger import AgentLogger
-from agentlite.memory.AgentSTMemory import AgentSTMemory, DictAgentSTMemory
+from zigent.actions import BaseAction, FinishAct, ThinkAct, PlanAct
+from zigent.agent_prompts import BasePromptGen
+from zigent.agent_prompts.prompt_utils import DEFAULT_PROMPT
+from zigent.agents.agent_utils import *
+from zigent.commons import AgentAct, TaskPackage
+from zigent.commons.AgentAct import ActObsChainType
+from zigent.llm.agent_llms import BaseLLM
+from zigent.logging import DefaultLogger
+from zigent.logging.terminal_logger import AgentLogger
+from zigent.memory.AgentSTMemory import AgentSTMemory, DictAgentSTMemory
 
 from .ABCAgent import ABCAgent
 

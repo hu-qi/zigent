@@ -1,6 +1,6 @@
 import time
 
-from agentlite.commons.TaskPackage import TaskPackage
+from zigent.commons.TaskPackage import TaskPackage
 
 from .agent_utils import name_checking
 

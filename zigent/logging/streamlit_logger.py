@@ -3,8 +3,8 @@ import chainlit as cl
 import streamlit as st
 
 
-from agentlite.commons import AgentAct, TaskPackage
-from agentlite.logging.utils import *
+from zigent.commons import AgentAct, TaskPackage
+from zigent.logging.utils import *
 
 from .base import BaseAgentLogger
 

@@ -3,7 +3,7 @@
 import re
 import json
 
-from agentlite.actions.BaseAction import BaseAction
+from zigent.actions.BaseAction import BaseAction
 
 
 def name_checking(name: str):

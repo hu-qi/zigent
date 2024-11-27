@@ -1,4 +1,4 @@
-from agentlite.actions.BaseAction import BaseAction
+from zigent.actions.BaseAction import BaseAction
 
 DEF_INNER_ACT_OBS = "OK"
 INNER_ACT_KEY = "response"

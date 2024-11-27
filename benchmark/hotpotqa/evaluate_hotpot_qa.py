@@ -14,13 +14,13 @@ from SearchActions import WikipediaSearch
 from hotpotagents import WikiSearchAgent 
 
 
-from agentlite.actions import BaseAction, FinishAct, ThinkAct
-from agentlite.actions.InnerActions import INNER_ACT_KEY
-from agentlite.agents import BaseAgent
-from agentlite.commons import AgentAct, TaskPackage
-from agentlite.llm.agent_llms import BaseLLM, get_llm_backend
-from agentlite.llm.LLMConfig import LLMConfig
-from agentlite.logging.terminal_logger import AgentLogger
+from zigent.actions import BaseAction, FinishAct, ThinkAct
+from zigent.actions.InnerActions import INNER_ACT_KEY
+from zigent.agents import BaseAgent
+from zigent.commons import AgentAct, TaskPackage
+from zigent.llm.agent_llms import BaseLLM, get_llm_backend
+from zigent.llm.LLMConfig import LLMConfig
+from zigent.logging.terminal_logger import AgentLogger
 
 
 

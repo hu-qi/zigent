@@ -2,14 +2,14 @@ from typing import List, Optional
 
 from SearchAgent import DuckSearchAgent, WikiSearchAgent
 
-from agentlite.actions import BaseAction, FinishAct, ThinkAct
-from agentlite.actions.InnerActions import INNER_ACT_KEY
-from agentlite.agents import ABCAgent, BaseAgent, ManagerAgent
-from agentlite.agents.agent_utils import AGENT_CALL_ARG_KEY
-from agentlite.commons import ActObsChainType, AgentAct, TaskPackage
-from agentlite.llm.agent_llms import BaseLLM, get_llm_backend
-from agentlite.llm.LLMConfig import LLMConfig
-from agentlite.logging.terminal_logger import AgentLogger
+from zigent.actions import BaseAction, FinishAct, ThinkAct
+from zigent.actions.InnerActions import INNER_ACT_KEY
+from zigent.agents import ABCAgent, BaseAgent, ManagerAgent
+from zigent.agents.agent_utils import AGENT_CALL_ARG_KEY
+from zigent.commons import ActObsChainType, AgentAct, TaskPackage
+from zigent.llm.agent_llms import BaseLLM, get_llm_backend
+from zigent.llm.LLMConfig import LLMConfig
+from zigent.logging.terminal_logger import AgentLogger
 
 # set PROMPT_DEBUG_FLAG to True to see the debug info
 agent_logger = AgentLogger(PROMPT_DEBUG_FLAG=False)

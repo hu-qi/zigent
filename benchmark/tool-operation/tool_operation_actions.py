@@ -1,5 +1,5 @@
-from agentlite.actions.BaseAction import BaseAction
-from agentlite.actions import FinishAct 
+from zigent.actions.BaseAction import BaseAction
+from zigent.actions import FinishAct 
 
 class finish(BaseAction):
     def __init__(self, env=None) -> None:

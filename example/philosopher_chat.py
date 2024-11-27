@@ -1,10 +1,10 @@
 # defining the educator class for chat
 from typing import List
-from agentlite.agents import ABCAgent, BaseAgent
-from agentlite.llm.agent_llms import BaseLLM, get_llm_backend
-from agentlite.llm.LLMConfig import LLMConfig
-from agentlite.logging.terminal_logger import AgentLogger
-from agentlite.actions.BaseAction import BaseAction
+from zigent.agents import ABCAgent, BaseAgent
+from zigent.llm.agent_llms import BaseLLM, get_llm_backend
+from zigent.llm.LLMConfig import LLMConfig
+from zigent.logging.terminal_logger import AgentLogger
+from zigent.actions.BaseAction import BaseAction
 
 # Define the Philosopher class 
 class Philosopher(BaseAgent):
@@ -37,10 +37,10 @@ Confucius = Philosopher(philosopher= "Confucius", llm = llm)
 Socrates = Philosopher(philosopher="Socrates", llm = llm)
 Aristotle = Philosopher(philosopher="Aristotle", llm = llm)
 
-from agentlite.commons import AgentAct, TaskPackage
-from agentlite.actions import ThinkAct, FinishAct
-from agentlite.actions.InnerActions import INNER_ACT_KEY
-from agentlite.agents.agent_utils import AGENT_CALL_ARG_KEY
+from zigent.commons import AgentAct, TaskPackage
+from zigent.actions import ThinkAct, FinishAct
+from zigent.actions.InnerActions import INNER_ACT_KEY
+from zigent.agents.agent_utils import AGENT_CALL_ARG_KEY
 
 # Add an illustration example for the philosopher agent
 exp_task = "What do you think the meaning of life?"
@@ -68,7 +68,7 @@ Aristotle.prompt_gen.add_example(
 )
 
 # define the manager agent
-from agentlite.agents import ManagerAgent
+from zigent.agents import ManagerAgent
 
 manager_agent_info = {
     "name": "manager_agent",

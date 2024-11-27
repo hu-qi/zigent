@@ -1,8 +1,8 @@
 import os
 
-from agentlite.commons import AgentAct, TaskPackage
-from agentlite.logging.utils import *
-from agentlite.utils import bcolors
+from zigent.commons import AgentAct, TaskPackage
+from zigent.logging.utils import *
+from zigent.utils import bcolors
 
 from .base import BaseAgentLogger
 

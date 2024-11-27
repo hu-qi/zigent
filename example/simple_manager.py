@@ -1,6 +1,6 @@
 # get llm backend
-from agentlite.llm.agent_llms import get_llm_backend
-from agentlite.llm.LLMConfig import LLMConfig
+from zigent.llm.agent_llms import get_llm_backend
+from zigent.llm.LLMConfig import LLMConfig
 
 llm_config_dict = {
     "llm_name": "gpt-3.5-turbo-16k-0613",
@@ -16,7 +16,7 @@ wiki_search_agent = WikiSearchAgent(llm)
 duck_search_agent = DuckSearchAgent(llm)
 
 # define the manager agent
-from agentlite.agents import ManagerAgent
+from zigent.agents import ManagerAgent
 
 manager_agent_info = {
     "name": "search_manager",
@@ -30,7 +30,7 @@ search_manager = ManagerAgent(
 )
 
 # test the manager agent with TaskPackage
-from agentlite.commons import TaskPackage
+from zigent.commons import TaskPackage
 
 test_task = "what is salesforce famous for?"
 test_task_pack = TaskPackage(instruction=test_task, task_creator="User")

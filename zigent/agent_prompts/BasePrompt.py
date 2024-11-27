@@ -1,7 +1,7 @@
 from typing import List
 
-from agentlite.actions.BaseAction import BaseAction
-from agentlite.agent_prompts.prompt_utils import (
+from zigent.actions.BaseAction import BaseAction
+from zigent.agent_prompts.prompt_utils import (
     DEFAULT_PROMPT,
     PROMPT_TOKENS,
     action_chain_format,
@@ -9,7 +9,7 @@ from agentlite.agent_prompts.prompt_utils import (
     format_agent_call_example,
     task_chain_format,
 )
-from agentlite.commons import AgentAct, TaskPackage
+from zigent.commons import AgentAct, TaskPackage
 
 
 class PromptGen:

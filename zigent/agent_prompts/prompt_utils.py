@@ -1,8 +1,8 @@
 import json
 
-from agentlite.actions.BaseAction import BaseAction
-from agentlite.agents.agent_utils import AGENT_CALL_ARG_KEY
-from agentlite.commons import AgentAct, TaskPackage
+from zigent.actions.BaseAction import BaseAction
+from zigent.agents.agent_utils import AGENT_CALL_ARG_KEY
+from zigent.commons import AgentAct, TaskPackage
 
 PROMPT_TASK_KEY = "task"
 PROMPT_ACT_OBS_KEY = "act_obs"

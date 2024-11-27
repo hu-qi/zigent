@@ -1,5 +1,5 @@
 from webshop_env import Webshop
-from agentlite.actions import BaseAction
+from zigent.actions import BaseAction
 
 class ClickAction(BaseAction):
     def __init__(self, session_idx, env:Webshop = None) -> None:

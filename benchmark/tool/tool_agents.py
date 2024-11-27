@@ -1,10 +1,10 @@
 from tool_actions import get_weather_actions, get_academia_actions, get_movie_actions
-from agentlite.actions import FinishAct, ThinkAct, PlanAct
-from agentlite.actions.InnerActions import INNER_ACT_KEY
-from agentlite.agents import ABCAgent, BaseAgent
-from agentlite.commons import AgentAct, TaskPackage
-from agentlite.llm.agent_llms import BaseLLM
-from agentlite.logging.terminal_logger import AgentLogger
+from zigent.actions import FinishAct, ThinkAct, PlanAct
+from zigent.actions.InnerActions import INNER_ACT_KEY
+from zigent.agents import ABCAgent, BaseAgent
+from zigent.commons import AgentAct, TaskPackage
+from zigent.llm.agent_llms import BaseLLM
+from zigent.logging.terminal_logger import AgentLogger
 
 class WeatherAgent(BaseAgent):
     def __init__(self, env, llm: BaseLLM, agent_arch: str = "react", PROMPT_DEBUG_FLAG=False):

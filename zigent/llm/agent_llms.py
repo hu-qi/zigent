@@ -2,7 +2,8 @@ from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from openai import OpenAI
 
-from agentlite.llm.LLMConfig import LLMConfig
+from zigent.llm.LLMConfig import LLMConfig
+import requests
 
 OPENAI_CHAT_MODELS = [
     "gpt-3.5-turbo",
@@ -13,7 +14,7 @@ OPENAI_CHAT_MODELS = [
     "gpt-4-turbo",
     "gpt-4-32k",
     "gpt-4-32k-0613",
-    "gpt-4-1106-preview",
+    "gpt-4-1106-preview"
 ]
 OPENAI_LLM_MODELS = ["text-davinci-003", "text-ada-001"]
 
@@ -110,6 +111,20 @@ class LangchainChatModel(BaseLLM):
 #     def run(self, prompt: str):
 #         return self.llm_chain.run(prompt)
 
+class APIRequestLLM():
+    def __init__(self, base_url: str):
+        self.base_url = base_url
+    def run(self, prompt: str):
+        url = f'{self.base_url}?param={prompt}' 
+        try:
+            response = requests.get(url)
+            response.raise_for_status()  # Check if the request was successful
+            return response.text
+        except requests.exceptions.RequestException as e:
+            # Handle request exceptions
+            print(f"Request failed: {e}")
+            return "Request failed, please try again later."
+    
 def get_llm_backend(llm_config: LLMConfig):
     llm_name = llm_config.llm_name
     llm_provider = llm_config.provider
@@ -117,8 +132,13 @@ def get_llm_backend(llm_config: LLMConfig):
         return LangchainChatModel(llm_config)
     elif llm_name in OPENAI_LLM_MODELS:
         return LangchainLLM(llm_config)
+    elif llm_provider == "chat_model": 
+        return LangchainChatModel(base_url=llm_config.base_url)
+    elif llm_provider == "api_request_llm": 
+        return APIRequestLLM(base_url=llm_config.base_url)
     else:
         return LangchainLLM(llm_config)
     # TODO: add more llm providers and inference APIs but for now we are using langchainLLM as the default
     # Using other LLM providers will require additional setup and configuration
     # We suggest subclass BaseLLM and implement the run method for the specific provider in your own best practices
+

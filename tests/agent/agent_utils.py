@@ -1,7 +1,7 @@
 import unittest
 
-from agentlite.actions import ThinkAct
-from agentlite.agents.agent_utils import act_match
+from zigent.actions import ThinkAct
+from zigent.agents.agent_utils import act_match
 
 
 class Test_act_match(unittest.TestCase):

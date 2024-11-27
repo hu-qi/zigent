@@ -1,6 +1,6 @@
 from typing import Dict, Union
 
-from agentlite.commons import AgentAct, TaskPackage
+from zigent.commons import AgentAct, TaskPackage
 
 from .memory_utils import *
 

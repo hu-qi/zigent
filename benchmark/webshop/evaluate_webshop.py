@@ -7,13 +7,13 @@ from webshop_agents import WebshopAgent
 from webshop_env import Webshop
 from webshop_multiagent import bolaa_webagent
 
-from agentlite.actions import BaseAction, FinishAct, ThinkAct
-from agentlite.actions.InnerActions import INNER_ACT_KEY
-from agentlite.agents import ABCAgent, BaseAgent
-from agentlite.commons import AgentAct, TaskPackage
-from agentlite.llm.agent_llms import BaseLLM, get_llm_backend
-from agentlite.llm.LLMConfig import LLMConfig
-from agentlite.logging.terminal_logger import AgentLogger
+from zigent.actions import BaseAction, FinishAct, ThinkAct
+from zigent.actions.InnerActions import INNER_ACT_KEY
+from zigent.agents import ABCAgent, BaseAgent
+from zigent.commons import AgentAct, TaskPackage
+from zigent.llm.agent_llms import BaseLLM, get_llm_backend
+from zigent.llm.LLMConfig import LLMConfig
+from zigent.logging.terminal_logger import AgentLogger
 
 webshop_env = Webshop()
 # =============================== start of webshop agent designing =============================== #

@@ -2,9 +2,9 @@ import os
 
 from weather_actions import get_user_current_date, get_user_current_location, get_latitude_longitude, get_weather_forcast
 
-from agentlite.agents import BaseAgent
-from agentlite.commons import TaskPackage
-from agentlite.llm.agent_llms import get_llm_backend, LLMConfig
+from zigent.agents import BaseAgent
+from zigent.commons import TaskPackage
+from zigent.llm.agent_llms import get_llm_backend, LLMConfig
 
 # LAM_URL = os.environ["LAM_URL"]
 # print(LAM_URL)

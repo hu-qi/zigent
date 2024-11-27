@@ -3,7 +3,7 @@ import os
 import wikipedia
 import duckduckgo_search
 
-from agentlite.actions.BaseAction import BaseAction
+from zigent.actions.BaseAction import BaseAction
 
 
 class DuckSearch(BaseAction):

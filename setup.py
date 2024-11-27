@@ -13,14 +13,14 @@ def get_requires():
 
 
 setup(
-    name="agentlite-llm",
-    version="0.1.12",
-    url="https://github.com/SalesforceAIResearch/AgentLite",
-    description="Light Library for Building LLM Agent System",
+    name="zigent",
+    version="0.0.1",
+    url="https://github.com/hu-qi/zigent",
+    description="AI Agent for zishu.co",
     packages=find_packages(exclude=["test*", "app*", "doc*", "example"]),
     python_requires=">=3.9",
     install_requires=get_requires(),
     license="Apache License 2.0",
-    author="Zhiwei Liu",
+    author="Zhiwei Liu, Qi Hu",
     author_email="zhiweiliu@salesforce.com",
 )

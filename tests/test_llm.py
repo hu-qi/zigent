@@ -1,7 +1,7 @@
 import unittest
 
-from agentlite.llm import LLMConfig
-from agentlite.llm.agent_llms import LangchainLLM, OpenAIChatLLM
+from zigent.llm import LLMConfig
+from zigent.llm.agent_llms import LangchainLLM, OpenAIChatLLM
 
 
 class Test_act_match(unittest.TestCase):
