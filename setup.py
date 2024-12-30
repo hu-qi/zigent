@@ -16,9 +16,9 @@ def get_requires():
 
 setup(
     name="zigent",
-    version="0.0.1",
+    version="0.0.2",
     url="https://github.com/hu-qi/zigent",
-    description="AI Agent for zishu.co",
+    description="AI Agent for zishu.co.",
     packages=find_packages(exclude=["test*", "app*", "doc*", "example"]),
     python_requires=">=3.9",
     long_description=long_description,
@@ -26,5 +26,5 @@ setup(
     install_requires=get_requires(),
     license="Apache License 2.0",
     author="Zhiwei Liu, Qi Hu",
-    author_email="zhiweiliu@salesforce.com",
+    author_email="zhiweiliu@salesforce.com, huqi1024@gmail.com",
 )

@@ -1,23 +1,50 @@
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import PromptTemplate
 from openai import OpenAI
+
 
 from zigent.llm.LLMConfig import LLMConfig
 import requests
 
 OPENAI_CHAT_MODELS = [
     "gpt-3.5-turbo",
-    "gpt-3.5-turbo-16k-0613",
+    "gpt-3.5-turbo-0125",
+    "gpt-3.5-turbo-1106",
     "gpt-3.5-turbo-16k",
+    "gpt-3.5-turbo-16k-0613",
+    "gpt-3.5-turbo-instruct",
+    "gpt-3.5-turbo-instruct-0914",
     "gpt-4",
     "gpt-4-0613",
     "gpt-4-turbo",
     "gpt-4-32k",
     "gpt-4-32k-0613",
-    "gpt-4-1106-preview"
+    "gpt-4-1106-preview",
+    "gpt-4o-mini",
+    "gpt-4o-mini-2024-07-18",
+    "o1-mini",
+    "o1-mini-2024-09-12",
+    "o1-preview",
+    "o1-preview-2024-09-12"
 ]
-OPENAI_LLM_MODELS = ["text-davinci-003", "text-ada-001"]
-
+OPENAI_LLM_MODELS = [
+    "babbage-002",
+    "dall-e-2",
+    "dall-e-3",
+    "davinci-002",
+    "omni-moderation-2024-09-26",
+    "omni-moderation-latest",
+    "text-ada-001",
+    "text-embedding-3-large",
+    "text-embedding-3-small",
+    "text-embedding-ada-002",
+    "text-davinci-003",
+    "tts-1",
+    "tts-1-1106",
+    "tts-1-hd",
+    "tts-1-hd-1106",
+    "whisper-1"
+]
 
 class BaseLLM:
     def __init__(self, llm_config: LLMConfig) -> None:
@@ -66,10 +93,10 @@ class LangchainLLM(BaseLLM):
         )
         human_template = "{prompt}"
         prompt = PromptTemplate(template=human_template, input_variables=["prompt"])
-        self.llm_chain = LLMChain(prompt=prompt, llm=llm)
+        self.llm_chain = prompt | llm | StrOutputParser()
 
     def run(self, prompt: str):
-        return self.llm_chain.run(prompt)
+        return self.llm_chain.invoke({"prompt": prompt})
 
 
 class LangchainChatModel(BaseLLM):
@@ -86,30 +113,11 @@ class LangchainChatModel(BaseLLM):
         )
         human_template = "{prompt}"
         prompt = PromptTemplate(template=human_template, input_variables=["prompt"])
-        self.llm_chain = LLMChain(prompt=prompt, llm=llm)
+        self.llm_chain = prompt | llm | StrOutputParser()
+
 
     def run(self, prompt: str):
-        return self.llm_chain.run(prompt)
-
-
-# class LangchainOllamaLLM(BaseLLM):
-#     def __init__(self, llm_config: LLMConfig):
-#         from langchain_community.llms import Ollama
-
-#         super().__init__(llm_config)
-#         llm = Ollama(
-#             model=self.llm_name,
-#             temperature=self.temperature,
-#             num_predict=self.max_tokens,
-#             base_url=llm_config.base_url
-#             # api_key=llm_config.api_key,
-#         )
-#         human_template = "{prompt}"
-#         prompt = PromptTemplate(template=human_template, input_variables=["prompt"])
-#         self.llm_chain = LLMChain(prompt=prompt, llm=llm)
-
-#     def run(self, prompt: str):
-#         return self.llm_chain.run(prompt)
+        return self.llm_chain.invoke({"prompt": prompt})
 
 class APIRequestLLM():
     def __init__(self, base_url: str):

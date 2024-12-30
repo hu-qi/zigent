@@ -1,19 +1,19 @@
 # core 
-langchain==0.1.3
-langchain_openai==0.0.5
-openai==1.40.0
-pydantic
+langchain==0.3.13
+langchain_openai==0.2.14
+openai==1.58.1
+pydantic==2.10.4
 
 ## formatting
-# black
+black==24.10.0
 
 ## example dependencies
-numpy
-wikipedia
-duckduckgo-search==6.1.0
-openmeteo_requests==1.2.0
-requests_cache==1.2.0
+numpy==2.2.1
+wikipedia==1.4.0
+duckduckgo-search==7.1.1
+openmeteo_requests==1.3.0
+requests_cache==1.2.1
 retry_requests==2.0.0
 
 ## UI dependencies
-# streamlit
+streamlit==1.41.1
