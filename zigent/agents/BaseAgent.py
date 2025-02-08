@@ -6,7 +6,6 @@ from zigent.agent_prompts.prompt_utils import DEFAULT_PROMPT
 from zigent.agents.agent_utils import *
 from zigent.commons import AgentAct, TaskPackage
 from zigent.commons.AgentAct import ActObsChainType
-from zigent.llm.agent_llms import BaseLLM
 from zigent.logging import DefaultLogger
 from zigent.logging.terminal_logger import AgentLogger
 from zigent.memory.AgentSTMemory import AgentSTMemory, DictAgentSTMemory
@@ -45,7 +44,7 @@ class BaseAgent(ABCAgent):
         self,
         name: str,
         role: str,
-        llm: BaseLLM,
+        llm,
         actions: List[BaseAction] = [],
         constraint: str = DEFAULT_PROMPT["constraint"],
         instruction: str = DEFAULT_PROMPT["agent_instruction"],

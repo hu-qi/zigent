@@ -16,7 +16,7 @@ def get_requires():
 
 setup(
     name="zigent",
-    version="0.0.2",
+    version="0.0.3",
     url="https://github.com/hu-qi/zigent",
     description="AI Agent for zishu.co.",
     packages=find_packages(exclude=["test*", "app*", "doc*", "example"]),

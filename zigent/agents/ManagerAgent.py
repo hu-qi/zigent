@@ -6,7 +6,6 @@ from zigent.agent_prompts.prompt_utils import DEFAULT_PROMPT
 from zigent.agents.agent_utils import *
 from zigent.commons import AgentAct, TaskPackage
 from zigent.commons.AgentAct import ActObsChainType
-from zigent.llm.agent_llms import BaseLLM
 from zigent.logging import DefaultLogger
 from zigent.logging.terminal_logger import AgentLogger
 
@@ -17,7 +16,7 @@ from .BaseAgent import BaseAgent
 class ManagerAgent(BaseAgent):
     def __init__(
         self,
-        llm: BaseLLM,
+        llm,
         name: str = "Base_Manager_Agent",
         role: str = "This is the basic manager agent",
         constraint: str = DEFAULT_PROMPT["constraint"],

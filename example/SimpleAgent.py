@@ -1,6 +1,6 @@
 from typing import List
 from zigent.agents import ABCAgent, BaseAgent
-from zigent.llm.agent_llms import BaseLLM, LLMConfig, LangchainChatModel
+from zigent.llm.agent_llms import LLM
 from zigent.commons import TaskPackage
 from zigent.logging.terminal_logger import AgentLogger
 from zigent.actions.BaseAction import BaseAction
@@ -12,21 +12,12 @@ from dotenv import load_dotenv
 # 加载环境变量
 load_dotenv()
 # 从环境变量中读取api_key
-api_key = os.getenv('WOWRAG_API_KEY')
-base_url = "http://43.200.7.56:8008/v1"
-chat_model = "glm-4-flash"
+api_key = os.getenv('ZISHU_API_KEY')
+base_url = "http://101.132.164.17:8000/v1"
+chat_model = "deepseek-chat"
 
-llm_config = LLMConfig(
-    {
-        "base_url": base_url,
-        "api_key": api_key,
-        "llm_name": chat_model,
-        "temperature": "0.0",
-    }
-)
-
-llm = LangchainChatModel(llm_config)
-agent_logger = AgentLogger(PROMPT_DEBUG_FLAG=False)
+llm = LLM(api_key=api_key, base_url=base_url, model_name=chat_model)
+agent_logger = AgentLogger(PROMPT_DEBUG_FLAG=True)
 
 
 class DuckSearchAction(BaseAction):
@@ -47,7 +38,7 @@ class DuckSearchAction(BaseAction):
 class DuckSearchAgent(BaseAgent):
     def __init__(
         self,
-        llm: BaseLLM,
+        llm: LLM,
         actions: List[BaseAction] = [DuckSearchAction()],
         manager: ABCAgent = None,
         **kwargs

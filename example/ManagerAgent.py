@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from zigent.llm.agent_llms import BaseLLM, LLMConfig, LangchainChatModel
+from zigent.llm.agent_llms import LLM
 
 from typing import List
 from zigent.actions.BaseAction import BaseAction
@@ -14,26 +14,17 @@ from zigent.agents.agent_utils import AGENT_CALL_ARG_KEY
 from zigent.agents import ManagerAgent
 
 load_dotenv()
-api_key = os.getenv('WOWRAG_API_KEY')
-base_url = "http://43.200.7.56:8008/v1"
-chat_model = "glm-4-flash"
+api_key = os.getenv('ZISHU_API_KEY')
+base_url = "http://101.132.164.17:8000/v1"
+chat_model = "deepseek-chat"
 
-llm_config = LLMConfig( 
-    {
-        "base_url": base_url,
-        "api_key": api_key,
-        "llm_name": chat_model,
-        "temperature": "0.0",
-    }
-)
-
-llm = LangchainChatModel(llm_config)
+llm = LLM(api_key=api_key, base_url=base_url, model_name=chat_model)
 
 class Philosopher(BaseAgent):
     def __init__(
         self,
         philosopher,
-        llm: BaseLLM,
+        llm: LLM,
         actions: List[BaseAction] = [], 
         manager: ABCAgent = None,
         **kwargs
