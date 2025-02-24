@@ -7,7 +7,7 @@ from zigent.agents.agent_utils import *
 from zigent.commons import AgentAct, TaskPackage
 from zigent.commons.AgentAct import ActObsChainType
 from zigent.logging import DefaultLogger
-from zigent.logging.terminal_logger import AgentLogger
+from zigent.logging.multi_agent_log import AgentLogger
 
 from .ABCAgent import ABCAgent
 from .BaseAgent import BaseAgent
@@ -156,13 +156,16 @@ class ManagerAgent(BaseAgent):
                 observation = agent(new_task_package)
                 return observation
         # if action is inner action
-        for action in self.actions:
-            if act_match(agent_act.name, action):
-                act_found_flag = True
-                observation = action(**agent_act.params)
-                if agent_act.name == FinishAct.action_name:
-                    task.answer = observation
-                    task.completion = "completed"
+        if agent_act.name == FinishAct.action_name:
+            act_found_flag = True
+            observation = "Task Completed."
+            task.completion = "completed"
+            task.answer = FinishAct(**agent_act.params)
+        else:
+            for action in self.actions:
+                if act_match(agent_act.name, action):
+                    act_found_flag = True
+                    observation = action(**agent_act.params)
         # if not find this action
         if act_found_flag:
             return observation
